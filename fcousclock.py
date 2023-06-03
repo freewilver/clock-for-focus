@@ -1,11 +1,14 @@
 import time
 
-def focus_timer(minutes):
-    seconds = minutes * 60
+minutes = int(input("Enter the number of minutes to focus: "))
+seconds = minutes * 60
 
-    print("专注时间开始！")
-    time.sleep(seconds)
-    print("专注时间结束！")
+while seconds:
+    mins, secs = divmod(seconds, 60)
+    timer = '{:02d}:{:02d}'.format(mins, secs)
+    print(timer, end="\r")
+    time.sleep(1)
+    seconds -= 1
 
-# 设置专注时长为25分钟
-focus_timer(25)
+print("Time's up!")
+
